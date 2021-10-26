@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">21Q4_App_Projekt</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_signup">Registrieren</string>
+    <string name="edt_username">Benutzername</string>
+    <string name="tv_title">MyDoz</string>
+    <string name="edt_password">Passwort</string>
+    <string name="iv_logo_content">logo</string>
+    <string name="error_no_username">Benutzername eingeben</string>
+    <string name="error_no_password">Password eingeben</string>
+    <string name="error_wrong_password_username">Falsches Passwort oder Benutzername</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>
