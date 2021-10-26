@@ -30,7 +30,7 @@ public class StartActivity extends Activity {
         edt_password = findViewById(R.id.edt_password);
 
         if(prefs.getBoolean("signedin", false)){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(intent);
         }
     }
@@ -43,7 +43,7 @@ public class StartActivity extends Activity {
         }else{
             if ((edt_username.getText().toString().equals("aue")) && (edt_password.getText().toString().equals("9"))) {
                 prefs.edit().putBoolean("signedin", true).apply();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
             }else{
                 edt_username.setError(null);

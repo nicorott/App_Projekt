@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/logo_21q4"
         android:supportsRtl="true"
         android:theme="@style/Theme.21Q4_App_Projekt">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity
             android:name=".StartActivity"
