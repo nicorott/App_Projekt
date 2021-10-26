@@ -13,5 +13,5 @@ public class HomeActivity extends Activity {
 
     }
     TestDB tb = new TestDB();
-    TestDB tb4 = new TestDB();
+    TestDB tb3 = new TestDB();
 }
