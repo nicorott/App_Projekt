@@ -8,7 +8,7 @@
         android:radius="40dp"
         />
     <solid
-        android:color="#2E2EFE"
+        android:color="#172e4c"
         />
 
 </shape>
