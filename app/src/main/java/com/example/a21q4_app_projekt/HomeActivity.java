@@ -12,6 +12,6 @@ public class HomeActivity extends Activity {
         setContentView(R.layout.activity_home);
 
     }
-
-    TestDB tb3 = new TestDB();
+    TestDB tb = new TestDB();
+    TestDB tb4 = new TestDB();
 }
