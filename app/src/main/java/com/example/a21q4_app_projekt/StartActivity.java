@@ -8,12 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class StartActivity extends Activity {
 
     EditText edt_username;
     EditText edt_password;
 
     SharedPreferences prefs;
+
+    FirebaseAuth Auth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +31,22 @@ public class StartActivity extends Activity {
         prefs.edit().putBoolean("signedin", false).apply();
         //------------------------------------------
 
-        edt_username = findViewById(R.id.edt_username);
+        edt_username = findViewById(R.id.edt_email);
         edt_password = findViewById(R.id.edt_password);
 
         if(prefs.getBoolean("signedin", false)){
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = Auth.getCurrentUser();
+        if(currentUser != null){
+
         }
     }
 
@@ -55,5 +70,6 @@ public class StartActivity extends Activity {
     public void signup_click(View view) {
         Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
         startActivity(intent);
+
     }
 }

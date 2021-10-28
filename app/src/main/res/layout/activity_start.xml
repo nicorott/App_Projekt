@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/edt_username"
+        android:id="@+id/edt_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
@@ -40,9 +40,9 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dip"
-        app:layout_constraintEnd_toEndOf="@+id/edt_username"
-        app:layout_constraintStart_toStartOf="@+id/edt_username"
-        app:layout_constraintTop_toBottomOf="@+id/edt_username"
+        app:layout_constraintEnd_toEndOf="@+id/edt_email"
+        app:layout_constraintStart_toStartOf="@+id/edt_email"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email"
         tools:ignore="TextContrastCheck"
         android:importantForAutofill="no"
         android:textColorHint="#98172e4c"/>

@@ -19,14 +19,14 @@ public class TestDB {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "My Activity";
 
-    TestDB(){
+    public TestDB(){
         addUser();
     }
 
     public void addUser() {
         Map<String, Object> user = new HashMap<>();
-        user.put("first", "Ada");
-        user.put("last", "Lovelace");
+        user.put("first", "Ada1");
+        user.put("last", "Lovelace1");
         user.put("born", 1815);
 
         // Add a new document with a generated ID
