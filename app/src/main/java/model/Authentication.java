@@ -1,4 +1,4 @@
-package com.example.a21q4_app_projekt;
+package model;
 
 import android.util.Log;
 

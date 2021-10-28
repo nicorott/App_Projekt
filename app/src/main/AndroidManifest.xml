@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/logo_21q4"
         android:supportsRtl="true"
         android:theme="@style/Theme.21Q4_App_Projekt">
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name="activity.HomeActivity"></activity>
+        <activity android:name="activity.SignUpActivity"></activity>
         <activity
-            android:name=".StartActivity"
+            android:name="activity.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

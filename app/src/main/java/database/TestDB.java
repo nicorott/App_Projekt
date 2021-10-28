@@ -1,4 +1,4 @@
-package com.example.a21q4_app_projekt;
+package database;
 
 import android.nfc.Tag;
 import android.os.Bundle;
