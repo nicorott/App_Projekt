@@ -24,6 +24,9 @@ public class SignUpActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        edt_password = findViewById(R.id.edt_password);
+        edt_email = findViewById(R.id.edt_email);
+
     }
 
     FirebaseAuth Auth = FirebaseAuth.getInstance();
@@ -40,6 +43,7 @@ public class SignUpActivity extends Activity {
                                 Toast.makeText(SignUpActivity.this, "Registered Successfully", Toast.LENGTH_LONG).show();
                                 edt_email.setText("");
                                 edt_password.setText("");
+                                finish();
                             }else{
                                 Toast.makeText(SignUpActivity.this, "Registration failed", Toast.LENGTH_LONG).show();
                             }
