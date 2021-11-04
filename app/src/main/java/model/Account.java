@@ -1,16 +1,16 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Account {
     private String userUID;
     private String username;
     private String email;
-    private String vorname;
-    private String nachname;
-    private Date birthday;
+    private String firstName;
+    private String lastName;
+    private LocalDate birthday;
     private String street;
-    private String housenumber;
+    private String houseNumber;
     private int plz;
     private String city;
     private static Account OBJ;
@@ -35,7 +35,6 @@ public class Account {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -43,7 +42,6 @@ public class Account {
     public String getUserUID() {
         return userUID;
     }
-
     public void setUserUID(String userUID) {
         this.userUID = userUID;
     }
@@ -51,55 +49,48 @@ public class Account {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getVorname() {
-        return vorname;
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getNachname() {
-        return nachname;
-    }
-
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
-    }
-
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
-
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
     public String getStreet() {
         return street;
     }
-
     public void setStreet(String street) {
         this.street = street;
     }
 
-    public String getHousenumber() {
-        return housenumber;
+    public String getHouseNumber() {
+        return houseNumber;
     }
-
-    public void setHousenumber(String housenumber) {
-        this.housenumber = housenumber;
+    public void setHouseNumber(String houseNumber) {
+        this.houseNumber = houseNumber;
     }
 
     public int getPlz() {
         return plz;
     }
-
     public void setPlz(int plz) {
         this.plz = plz;
     }
@@ -107,8 +98,20 @@ public class Account {
     public String getCity() {
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public void setAccount(String userUID, String userName, String email, String firstname, String lastName, LocalDate birthday, String city, String street, String houseNumber, int plz){
+        this.userUID = userUID;
+        this.username = userName;
+        this.email = email;
+        this.firstName = firstname;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.city = city;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.plz = plz;
     }
 }

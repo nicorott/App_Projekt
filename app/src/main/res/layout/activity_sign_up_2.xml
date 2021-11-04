@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/edt_vorname"
+                android:id="@+id/edt_firstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -42,7 +42,7 @@
                 tools:ignore="TextContrastCheck" />
 
             <EditText
-                android:id="@+id/edt_nachname"
+                android:id="@+id/edt_LastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -134,7 +134,8 @@
                     android:padding="10dip"
                     android:textAlignment="inherit"
                     android:textSize="18sp"
-                    tools:ignore="TextContrastCheck" />
+                    tools:ignore="TextContrastCheck"
+                    tools:inputType="number" />
             </LinearLayout>
 
             <EditText

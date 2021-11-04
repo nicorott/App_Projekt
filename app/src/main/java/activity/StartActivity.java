@@ -7,9 +7,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.example.a21q4_app_projekt.R;
 import database.TestDB;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -21,8 +28,6 @@ public class StartActivity extends Activity {
     SharedPreferences prefs;
 
     FirebaseAuth Auth = FirebaseAuth.getInstance();
-
-    TestDB tb = new TestDB();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,31 +49,22 @@ public class StartActivity extends Activity {
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = Auth.getCurrentUser();
-        if(currentUser != null){
-
-        }
-    }
-
     public void login_click(View view) {
-        if((edt_username.getText().toString().isEmpty())){
-            edt_username.setError(getString(R.string.error_no_username));
-        }else if((edt_password.getText().toString().isEmpty())){
-            edt_password.setError(getString(R.string.error_no_password));
-        }else{
-            if ((edt_username.getText().toString().equals("aue")) && (edt_password.getText().toString().equals("9"))) {
-                prefs.edit().putBoolean("signedin", true).apply();
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
-            }else{
-                edt_username.setError(null);
-                edt_password.setError(getString(R.string.error_wrong_password_username));
+        Auth.signInWithEmailAndPassword(edt_username.toString(),edt_password.toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    if (Auth.getCurrentUser().isEmailVerified()){
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(StartActivity.this, "Bitte verifiziere zuerst deine Email-Adresse", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(StartActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                }
             }
-        }
+        });
     }
 
     public void signup_click(View view) {
