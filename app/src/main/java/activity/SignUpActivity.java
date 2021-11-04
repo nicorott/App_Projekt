@@ -9,10 +9,14 @@ import android.widget.Toast;
 
 import com.example.a21q4_app_projekt.R;
 
+import model.Account;
+
 public class SignUpActivity extends Activity {
 
     EditText edt_password;
     EditText edt_password_proof;
+    EditText edt_email;
+    EditText edt_username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +25,16 @@ public class SignUpActivity extends Activity {
 
         edt_password = findViewById(R.id.edt_password);
         edt_password_proof = findViewById(R.id.edt_password_proof);
+        edt_email = findViewById(R.id.edt_email);
+        edt_username = findViewById(R.id.edt_username);
     }
 
     public void continue_click(View view) {
         if (edt_password.getText().toString().equals(edt_password_proof.getText().toString())) {
-            Intent intent = new Intent(getApplicationContext(), SignUpActivity_2.class);
+            Intent intent = new Intent(SignUpActivity.this, SignUpActivity_2.class);
+            intent.putExtra("email", edt_email.getText().toString());
+            intent.putExtra("username", edt_username.getText().toString());
+            intent.putExtra("password", edt_password.getText().toString());
             startActivity(intent);
         }else{
             Toast.makeText(SignUpActivity.this, "Passwort stimmt nicht überein", Toast.LENGTH_LONG).show();

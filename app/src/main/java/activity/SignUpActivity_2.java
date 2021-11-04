@@ -23,9 +23,9 @@ import model.Account;
 
 public class SignUpActivity_2 extends Activity {
 
-    EditText edt_password;
-    EditText edt_email;
-    EditText edt_username;
+    String edt_password;
+    String edt_email;
+    String edt_username;
 
     EditText edt_firstName;
     EditText edt_lastName;
@@ -42,9 +42,12 @@ public class SignUpActivity_2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_2);
 
-        edt_password = findViewById(R.id.edt_password);
-        edt_email = findViewById(R.id.edt_email);
-        edt_username = findViewById(R.id.edt_username);
+        if(savedInstanceState == null) {
+            Bundle extra = getIntent().getExtras();
+            edt_password = extra.getString("password");
+            edt_email = extra.getString("email");
+            edt_username = extra.getString("username");
+        }
 
         edt_firstName = findViewById(R.id.edt_firstName);
         edt_lastName = findViewById(R.id.edt_LastName);
@@ -60,7 +63,7 @@ public class SignUpActivity_2 extends Activity {
 
     public void signup_2_click(View view) {
         //Creates User in Firebase database
-        Auth.createUserWithEmailAndPassword(edt_email.getText().toString(), edt_password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        Auth.createUserWithEmailAndPassword(edt_email, edt_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
@@ -68,8 +71,6 @@ public class SignUpActivity_2 extends Activity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                edt_email.setText("");
-                                edt_password.setText("");
                                 ac.setAccount(
                                         Auth.getCurrentUser().getUid(),
                                         edt_username.toString(),
