@@ -8,7 +8,7 @@ public class Account {
     private String email;
     private String firstName;
     private String lastName;
-    private LocalDate birthday;
+    private String birthday;
     private String street;
     private String houseNumber;
     private int plz;
@@ -67,10 +67,10 @@ public class Account {
         this.lastName = lastName;
     }
 
-    public LocalDate getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -102,7 +102,7 @@ public class Account {
         this.city = city;
     }
 
-    public void setAccount(String userUID, String userName, String email, String firstname, String lastName, LocalDate birthday, String city, String street, String houseNumber, int plz){
+    public void setAccount(String userUID, String userName, String email, String firstname, String lastName, String birthday, String city, String street, String houseNumber, int plz){
         this.userUID = userUID;
         this.username = userName;
         this.email = email;

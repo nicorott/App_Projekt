@@ -77,7 +77,7 @@ public class SignUpActivity_2 extends Activity {
                                         edt_email.toString(),
                                         edt_firstName.toString(),
                                         edt_lastName.toString(),
-                                        LocalDate.parse(edt_birthday.toString()),
+                                        edt_birthday.toString(),
                                         edt_city.toString(),
                                         edt_street.toString(),
                                         edt_houseNumber.toString(),
