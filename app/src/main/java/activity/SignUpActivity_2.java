@@ -81,7 +81,7 @@ public class SignUpActivity_2 extends Activity {
                                         edt_city.toString(),
                                         edt_street.toString(),
                                         edt_houseNumber.toString(),
-                                        Integer.valueOf(edt_plz.toString()));
+                                        edt_plz.toString());
                                 db.collection("users").add(ac).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentReference> task) {

@@ -11,7 +11,7 @@ public class Account {
     private String birthday;
     private String street;
     private String houseNumber;
-    private int plz;
+    private String plz;
     private String city;
     private static Account OBJ;
 
@@ -88,10 +88,10 @@ public class Account {
         this.houseNumber = houseNumber;
     }
 
-    public int getPlz() {
+    public String getPlz() {
         return plz;
     }
-    public void setPlz(int plz) {
+    public void setPlz(String plz) {
         this.plz = plz;
     }
 
@@ -102,7 +102,7 @@ public class Account {
         this.city = city;
     }
 
-    public void setAccount(String userUID, String userName, String email, String firstname, String lastName, String birthday, String city, String street, String houseNumber, int plz){
+    public void setAccount(String userUID, String userName, String email, String firstname, String lastName, String birthday, String city, String street, String houseNumber, String plz){
         this.userUID = userUID;
         this.username = userName;
         this.email = email;
