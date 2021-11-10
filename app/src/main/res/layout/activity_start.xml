@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/edt_email"
+        android:id="@+id/edt_email_start"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
@@ -30,7 +30,7 @@
         android:textColorHint="#98172e4c"/>
 
     <EditText
-        android:id="@+id/edt_password"
+        android:id="@+id/edt_password_start"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -40,9 +40,9 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dip"
-        app:layout_constraintEnd_toEndOf="@+id/edt_email"
-        app:layout_constraintStart_toStartOf="@+id/edt_email"
-        app:layout_constraintTop_toBottomOf="@+id/edt_email"
+        app:layout_constraintEnd_toEndOf="@+id/edt_email_start"
+        app:layout_constraintStart_toStartOf="@+id/edt_email_start"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email_start"
         tools:ignore="TextContrastCheck"
         android:importantForAutofill="no"
         android:textColorHint="#98172e4c"/>
@@ -84,9 +84,9 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/button_start_layout"
         android:text="@string/btn_login"
-        app:layout_constraintEnd_toEndOf="@+id/edt_password"
-        app:layout_constraintStart_toStartOf="@+id/edt_password"
-        app:layout_constraintTop_toBottomOf="@+id/edt_password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_password_start"
+        app:layout_constraintStart_toStartOf="@+id/edt_password_start"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password_start"
         android:textSize="18sp"
         android:textColor="#FFFFFF"
         android:onClick="login_click"/>

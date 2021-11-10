@@ -1,7 +1,6 @@
 package activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,18 +13,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.time.LocalDate;
 
 import model.Account;
 
 public class SignUpActivity_2 extends Activity {
 
-    String edt_password;
-    String edt_email;
-    String edt_username;
+    String passwordStr;
+    String emailStr;
+    String usernameStr;
 
     EditText edt_firstName;
     EditText edt_lastName;
@@ -44,9 +40,9 @@ public class SignUpActivity_2 extends Activity {
 
         if(savedInstanceState == null) {
             Bundle extra = getIntent().getExtras();
-            edt_password = extra.getString("password");
-            edt_email = extra.getString("email");
-            edt_username = extra.getString("username");
+            passwordStr = extra.getString("password");
+            emailStr = extra.getString("email");
+            usernameStr = extra.getString("username");
         }
 
         edt_firstName = findViewById(R.id.edt_firstName);
@@ -63,7 +59,7 @@ public class SignUpActivity_2 extends Activity {
 
     public void signup_2_click(View view) {
         //Creates User in Firebase database
-        Auth.createUserWithEmailAndPassword(edt_email, edt_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        Auth.createUserWithEmailAndPassword(emailStr, passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
@@ -71,7 +67,7 @@ public class SignUpActivity_2 extends Activity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                ac.setAccount(
+                                /*ac.setAccount(
                                         Auth.getCurrentUser().getUid(),
                                         edt_username.toString(),
                                         edt_email.toString(),
@@ -81,8 +77,8 @@ public class SignUpActivity_2 extends Activity {
                                         edt_city.toString(),
                                         edt_street.toString(),
                                         edt_houseNumber.toString(),
-                                        edt_plz.toString());
-                                db.collection("users").add(ac).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                        edt_plz.toString());*/
+                                /*db.collection("users").add(ac).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentReference> task) {
                                         if (task.isSuccessful()) {
@@ -94,7 +90,7 @@ public class SignUpActivity_2 extends Activity {
                                             Toast.makeText(SignUpActivity_2.this, "Registration failed", Toast.LENGTH_LONG).show();
                                         }
                                     }
-                                });
+                                });*/
                             }else{
                                 Toast.makeText(SignUpActivity_2.this, "Registration failed", Toast.LENGTH_LONG).show();
                             }

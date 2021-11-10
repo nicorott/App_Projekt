@@ -9,8 +9,6 @@ import android.widget.Toast;
 
 import com.example.a21q4_app_projekt.R;
 
-import model.Account;
-
 public class SignUpActivity extends Activity {
 
     EditText edt_password;
@@ -23,9 +21,9 @@ public class SignUpActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        edt_password = findViewById(R.id.edt_password);
+        edt_password = findViewById(R.id.edt_password_signup);
         edt_password_proof = findViewById(R.id.edt_password_proof);
-        edt_email = findViewById(R.id.edt_email);
+        edt_email = findViewById(R.id.edt_email_signup);
         edt_username = findViewById(R.id.edt_username);
     }
 

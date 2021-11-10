@@ -12,13 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.a21q4_app_projekt.R;
-import database.TestDB;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class StartActivity extends Activity {
 
@@ -37,11 +35,11 @@ public class StartActivity extends Activity {
         prefs = this.getPreferences(Context.MODE_PRIVATE);
 
         //DELETE AFTER INSERTING SIGN OUT BUTTON
-        prefs.edit().putBoolean("signedin", false).apply();
+        prefs.edit().putBoolean("signedin", false).commit();
         //------------------------------------------
 
-        edt_username = findViewById(R.id.edt_email);
-        edt_password = findViewById(R.id.edt_password);
+        edt_username = findViewById(R.id.edt_email_start);
+        edt_password = findViewById(R.id.edt_password_start);
 
         if(prefs.getBoolean("signedin", false)){
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -50,7 +48,7 @@ public class StartActivity extends Activity {
     }
 
     public void login_click(View view) {
-        Auth.signInWithEmailAndPassword(edt_username.toString(),edt_password.toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        Auth.signInWithEmailAndPassword(edt_username.getText().toString(),edt_password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
