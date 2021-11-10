@@ -1,7 +1,9 @@
 package activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import model.Account;
@@ -45,6 +48,10 @@ public class SignUpActivity_2 extends Activity {
             usernameStr = extra.getString("username");
         }
 
+        Log.i("passwort", passwordStr);
+        Log.i("email", emailStr);
+        Log.i("username", usernameStr);
+
         edt_firstName = findViewById(R.id.edt_firstName);
         edt_lastName = findViewById(R.id.edt_LastName);
         edt_birthday = findViewById(R.id.edt_birthday);
@@ -67,30 +74,30 @@ public class SignUpActivity_2 extends Activity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                /*ac.setAccount(
+                                ac.setAccount(
                                         Auth.getCurrentUser().getUid(),
-                                        edt_username.toString(),
-                                        edt_email.toString(),
+                                        usernameStr,
+                                        emailStr,
                                         edt_firstName.toString(),
                                         edt_lastName.toString(),
                                         edt_birthday.toString(),
                                         edt_city.toString(),
                                         edt_street.toString(),
                                         edt_houseNumber.toString(),
-                                        edt_plz.toString());*/
-                                /*db.collection("users").add(ac).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                        edt_plz.toString());
+                                db.collection("users").add(ac).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentReference> task) {
                                         if (task.isSuccessful()) {
                                             Toast.makeText(SignUpActivity_2.this, "Registration successful", Toast.LENGTH_LONG).show();
                                             //Switches to the start screen after successful completion of registration
-                                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                                            Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                                             startActivity(intent);
                                         }else{
                                             Toast.makeText(SignUpActivity_2.this, "Registration failed", Toast.LENGTH_LONG).show();
                                         }
                                     }
-                                });*/
+                                });
                             }else{
                                 Toast.makeText(SignUpActivity_2.this, "Registration failed", Toast.LENGTH_LONG).show();
                             }
