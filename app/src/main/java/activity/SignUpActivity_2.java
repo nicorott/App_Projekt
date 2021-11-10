@@ -78,13 +78,13 @@ public class SignUpActivity_2 extends Activity {
                                         Auth.getCurrentUser().getUid(),
                                         usernameStr,
                                         emailStr,
-                                        edt_firstName.toString(),
-                                        edt_lastName.toString(),
-                                        edt_birthday.toString(),
-                                        edt_city.toString(),
-                                        edt_street.toString(),
-                                        edt_houseNumber.toString(),
-                                        edt_plz.toString());
+                                        edt_firstName.getText().toString(),
+                                        edt_lastName.getText().toString(),
+                                        edt_birthday.getText().toString(),
+                                        edt_city.getText().toString(),
+                                        edt_street.getText().toString(),
+                                        edt_houseNumber.getText().toString(),
+                                        edt_plz.getText().toString());
                                 db.collection("users").add(ac).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentReference> task) {
